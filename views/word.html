@@ -1,0 +1,57 @@
+{{ define "image_mod" }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .chinese-card-example {
+            box-sizing: border-box;
+            padding: 20px;
+            justify-content: center;
+            width: 610px;
+            height: 236px;
+            background: #F7F7F7;
+            font-size: 48px;
+            font-family: STKaitiSC-Regular, STKaitiSC;
+            font-weight: 400;
+            color: #222222;
+            letter-spacing: 28px;
+            line-height: 180px;
+            text-align: center;
+        }
+
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="chinese-card-example">
+        <span class="chinese-card-example-content">
+            {{ range $i, $v := .List }}
+                {{ if eq $i $.LastIndex }}
+                     {{ $v | unescaped }}
+                {{ else }}
+                    {{ $v | unescaped }} <br />
+                {{end}}
+            {{ end }}
+        </span>
+</div>
+</body>
+
+</html>
+{{ end }}
+
